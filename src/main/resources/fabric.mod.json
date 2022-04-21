@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "commandpermissions",
+  "version": "${version}",
+  "name": "Command Permissions",
+  "description": "Command Permissions",
+  "authors": [
+    "Max Henkel"
+  ],
+  "contact": {
+    "website": "https://modrepo.de"
+  },
+  "license": "All Rights Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.maxhenkel.commandpermissions.CommandPermissions"
+    ]
+  },
+  "mixins": [
+    "commandpermissions.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_dependency}",
+    "java": ">=17"
+  },
+  "suggests": {
+    "fabric-permissions-api-v0": "*"
+  }
+}
