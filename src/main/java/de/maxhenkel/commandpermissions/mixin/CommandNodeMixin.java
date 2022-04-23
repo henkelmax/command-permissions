@@ -19,6 +19,9 @@ public abstract class CommandNodeMixin<S> implements Comparable<CommandNode<S>> 
         if (!(source instanceof CommandSourceStack stack)) {
             return;
         }
+        if (stack.getServer() == null) {
+            return;
+        }
         CommandDispatcher<CommandSourceStack> dispatcher = stack.getServer().getCommands().getDispatcher();
         CommandNode<S> thisNode = (CommandNode<S>) ((Object) this);
         for (CommandNode<?> node : dispatcher.getRoot().getChildren()) {

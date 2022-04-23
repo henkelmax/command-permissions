@@ -1,0 +1,1 @@
+- Fixed datapacks causing errors
