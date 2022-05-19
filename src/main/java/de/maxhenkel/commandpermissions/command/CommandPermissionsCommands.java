@@ -9,7 +9,7 @@ import net.minecraft.commands.CommandRuntimeException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.util.List;
@@ -26,15 +26,15 @@ public class CommandPermissionsCommands {
             PermissionConfig permissions = CommandPermissions.PERMISSIONS;
 
             if (permissions == null) {
-                throw new CommandRuntimeException(new TextComponent("Internal error"));
+                throw new CommandRuntimeException(Component.literal("Internal error"));
             }
 
             boolean added = permissions.addPermission(player, node);
 
             if (added) {
-                context.getSource().sendSuccess(new TextComponent("Successfully added permission"), false);
+                context.getSource().sendSuccess(Component.literal("Successfully added permission"), false);
             } else {
-                context.getSource().sendFailure(new TextComponent("This player already has this permission"));
+                context.getSource().sendFailure(Component.literal("This player already has this permission"));
             }
 
             return 1;
@@ -47,15 +47,15 @@ public class CommandPermissionsCommands {
             PermissionConfig permissions = CommandPermissions.PERMISSIONS;
 
             if (permissions == null) {
-                throw new CommandRuntimeException(new TextComponent("Internal error"));
+                throw new CommandRuntimeException(Component.literal("Internal error"));
             }
 
             boolean removed = permissions.removePermission(player, node);
 
             if (removed) {
-                context.getSource().sendSuccess(new TextComponent("Successfully removed permission"), false);
+                context.getSource().sendSuccess(Component.literal("Successfully removed permission"), false);
             } else {
-                context.getSource().sendFailure(new TextComponent("This player does not have this permission"));
+                context.getSource().sendFailure(Component.literal("This player does not have this permission"));
             }
 
             return 1;
@@ -67,17 +67,17 @@ public class CommandPermissionsCommands {
             PermissionConfig permissions = CommandPermissions.PERMISSIONS;
 
             if (permissions == null) {
-                throw new CommandRuntimeException(new TextComponent("Internal error"));
+                throw new CommandRuntimeException(Component.literal("Internal error"));
             }
 
             List<String> perms = permissions.getPermissions(player);
 
             if (perms.isEmpty()) {
-                context.getSource().sendSuccess(new TextComponent("This player does not have any permissions"), false);
+                context.getSource().sendSuccess(Component.literal("This player does not have any permissions"), false);
                 return 0;
             }
 
-            context.getSource().sendSuccess(new TextComponent("Permissions: \n  %s".formatted(String.join("\n  ", perms))), false);
+            context.getSource().sendSuccess(Component.literal("Permissions: \n  %s".formatted(String.join("\n  ", perms))), false);
 
             return perms.size();
         })));

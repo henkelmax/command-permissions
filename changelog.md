@@ -1,1 +1,1 @@
-- Fixed datapacks causing errors
+- Updated to 1.19
