@@ -5,7 +5,7 @@ import de.maxhenkel.commandpermissions.config.PermissionConfig;
 import de.maxhenkel.commandpermissions.config.ServerConfig;
 import de.maxhenkel.configbuilder.ConfigBuilder;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
